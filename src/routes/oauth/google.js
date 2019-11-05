@@ -6,6 +6,15 @@ const googleMW = require('../../middleware/oauth/google-mw.js');
 const router = express.Router();
 
 // TODO: Swagger Comment
+/**
+ * @route GET /google
+ * This route authenticates and signs in a user via google oath. 
+ * @param {object}   req   The request object. 
+ * @param {object}   res   The response object.
+ * @param {Function} next  
+ * @security oauth
+ * @returns {object} 200 - An object with a key-value token, which represents our generated JSON google OAuth URL
+ */
 router.get('/google', (req, res, next) => {
   let googleOAuthURL = process.env.GOOGLE_AUTH_SERVICE;
   let options = {
@@ -17,6 +26,7 @@ router.get('/google', (req, res, next) => {
   };
 
   // TODO: Comment
+  // adds a query to the URL
   googleOAuthURL += '?';
 
   // TODO: Comment

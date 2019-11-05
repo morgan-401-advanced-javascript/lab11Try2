@@ -1,11 +1,20 @@
 const superagent = require('superagent');
 
 // TODO: JSDoc Comment
+/** 
+ * @function getUserData
+ * @param {object} request
+ * @returns {object} userData from google 
+ * 
+*/
+
 let getUserData = async request => {
   // TODO: Comment
+  //  sets the variable authCode to the request query code. We will use this in the next function.
   let authCode = request.query.code;
 
   // TODO: Comment
+  // this uses the google token from env to authorize our application to use google OAuth 
   let googleRes = await superagent
     .post(process.env.GOOGLE_TOKEN_SERVICE)
     .type('form')
