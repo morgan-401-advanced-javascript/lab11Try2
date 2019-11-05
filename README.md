@@ -7,8 +7,7 @@
 ### Links and Resources
 * [submission PR](https://github.com/morgan-401-advanced-javascript/lab11Try2/pull/1)
 * [travis](https://travis-ci.com/morgan-401-advanced-javascript/lab11Try2)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+* [heroku](https://lab11morgan.herokuapp.com/)
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)
