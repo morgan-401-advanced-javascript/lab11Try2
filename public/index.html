@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OAuth Lab</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="bauth-form.js"></script>
+    <script type="text/javascript" src="oauth-form.js"></script>
+  </head>
+  <style>
+    .container {
+      padding-top: 50px;
+    }
+  </style>
+  <body>
+    <div
+      id="bAuth-message"
+      class="mt-3"
+      style="position: absolute; top: 0; right: 0;"
+    ></div>
+    <div
+      id="oAuth-message"
+      class="mt-3"
+      style="position: absolute; top: 0; right: 0;"
+    ></div>
+
+    <div class="container">
+      <div class="jumbotron">
+        <form id="basic-auth" onsubmit="basicAuth(event)">
+          <h2 class="display-3">Authentication Form</h2>
+          <p class="lead mb-5">
+            Use this form to test Basic Authentication.
+          </p>
+          <div class="form-group">
+            <label for="username" class="lead">Username</label>
+            <input type="text" class="form-control" id="username" />
+          </div>
+          <div class="form-group">
+            <label for="password" class="lead">Password</label>
+            <input type="text" class="form-control" id="password" />
+          </div>
+          <p class="mb-4"></p>
+          <button type="submit" class="btn btn-primary">
+            <h5>Basic Authentication Sign In</h5>
+          </button>
+        </form>
+      </div>
+
+      <div class="jumbotron">
+        <form>
+          <h2 class="display-3">OAuth External Sign In</h2>
+          <p class="lead mb-5">
+            Connect the button below to your external sign in.
+          </p>
+          <button
+            type="button"
+            onclick="getOAuth('/google')"
+            class="btn btn-primary"
+          >
+            <h5>Google Signin</h5>
+          </button>
+
+          <button
+            type="button"
+            onclick="getOAuth('/github')"
+            class="btn btn-primary"
+          >
+            <h5>GitHub Signin</h5>
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
