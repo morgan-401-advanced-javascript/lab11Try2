@@ -7,7 +7,7 @@
 const getOAuth = async path => {
   let res = await fetch(path, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
   });
 
   res = await res.json();

@@ -23,7 +23,7 @@ let getUserData = async request => {
       client_id: process.env.GOOGLE_CLIENT_ID,
       client_secret: process.env.GOOGLE_CLIENT_SECRET,
       redirect_uri: `${process.env.HOME_URL}/google-oauth`,
-      grant_type: 'authorization_code'
+      grant_type: 'authorization_code',
     });
 
   // TODO: Comment

@@ -22,7 +22,7 @@ router.get('/google', (req, res, next) => {
     redirect_uri: process.env.HOME_URL + '/google-oauth',
     scope: 'email openid profile',
     prompt: 'consent',
-    response_type: 'code'
+    response_type: 'code',
   };
 
   // TODO: Comment

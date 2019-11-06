@@ -12,7 +12,7 @@ const users = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String },
-  role: { type: String, default: 'user', enum: ['admin', 'editor', 'user'] }
+  role: { type: String, default: 'user', enum: ['admin', 'editor', 'user'] },
 });
 
 /**
@@ -48,7 +48,7 @@ users.statics.authenticateBasic = async function(auth) {
 users.methods.generateToken = function() {
   let token = {
     id: this._id,
-    role: this.role
+    role: this.role,
   };
 
   let secret = process.env.SECRET || 'this-is-my-secret';

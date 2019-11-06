@@ -6,39 +6,39 @@ const githubMW = require('../../middleware/oauth/github-mw.js');
 const router = express.Router();
 
 router.get('/github', (req, res, next) => {
-    let githubOAuthURL = process.env.GITHUB_AUTH_SERVICE;
-    let options = {
-      client_id: process.env.GITHUB_CLIENT_ID,
-      redirect_uri: process.env.HOME_URL + '/github-oauth',
-      scope: 'email openid profile',
-      prompt: 'consent',
-      response_type: 'code'
-    };
+  let githubOAuthURL = process.env.GITHUB_AUTH_SERVICE;
+  let options = {
+    client_id: process.env.GITHUB_CLIENT_ID,
+    redirect_uri: process.env.HOME_URL + '/github-oauth',
+    scope: 'email openid profile',
+    prompt: 'consent',
+    response_type: 'code',
+  };
   
-    // TODO: Comment
-    // adds a query to the githubOAuthURL
-    githubOAuthURL += '?';
+  // TODO: Comment
+  // adds a query to the githubOAuthURL
+  githubOAuthURL += '?';
   
-    // TODO: Comment
-    // adds our keys to the githubOAuthURL
-    Object.keys(options).forEach((key, indx) => {
-      githubOAuthURL += key + '=' + encodeURIComponent(options[key]);
-      githubOAuthURL += '&';
-    });
+  // TODO: Comment
+  // adds our keys to the githubOAuthURL
+  Object.keys(options).forEach((key, indx) => {
+    githubOAuthURL += key + '=' + encodeURIComponent(options[key]);
+    githubOAuthURL += '&';
+  });
   
-    // TODO: Comment
-    // This response isthe updated githubOAuthURL
-    res.status(200).json({ url: githubOAuthURL });
+  // TODO: Comment
+  // This response isthe updated githubOAuthURL
+  res.status(200).json({ url: githubOAuthURL });
 
 });
 
 router.get('/github-oauth', async (req, res, next) => {
-    let data = await githubMW(req);
-    console.log('data', data);
+  let data = await githubMW(req);
+  console.log('data', data);
 
-    // TODO: Comment
-    // response sends json data of the name & github login name of the user 
-    res.status(200).json({ name: data.name, login: data.login });
+  // TODO: Comment
+  // response sends json data of the name & github login name of the user 
+  res.status(200).json({ name: data.name, login: data.login });
 });
 
 module.exports = router;

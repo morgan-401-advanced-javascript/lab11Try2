@@ -1,4 +1,5 @@
 'use strict';
+const mongoose = require('mongoose');
 
 /**
  * A class representing a data model in our database.

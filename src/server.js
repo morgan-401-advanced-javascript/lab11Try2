@@ -62,9 +62,9 @@ module.exports = {
     const options = {
       useNewUrlParser: true,
       useCreateIndex: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     };
 
     mongoose.connect(PATH, options);
-  }
+  },
 };
