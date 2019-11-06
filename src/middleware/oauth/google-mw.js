@@ -27,14 +27,18 @@ let getUserData = async request => {
     });
 
   // TODO: Comment
+  // this is the access token that google returns us
   let access_token = googleRes.body.access_token;
 
   // TODO: Comment
+  //   This updates our headers with the access token provided by google
+
   googleRes = await superagent
     .get(process.env.GOOGLE_API)
     .set('Authorization', `Bearer ${access_token}`);
 
   // TODO: Comment
+  // This returns the data provided by google about the user after Oauth
   let userData = googleRes.body;
   return userData;
 };

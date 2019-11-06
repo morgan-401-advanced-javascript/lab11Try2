@@ -9,10 +9,6 @@
 * [travis](https://travis-ci.com/morgan-401-advanced-javascript/lab11Try2)
 * [heroku](https://lab11morgan.herokuapp.com/)
 
-#### Documentation
-* [api docs](http://xyz.com) (API servers)
-* [jsdoc](http://xyz.com) (Server assignments)
-
 ### Setup
 #### `.env` requirements
 `MONGODB_URI = mongodb://127.0.0.1:27017/app
@@ -29,9 +25,9 @@ GOOGLE_API=https://openidconnect.googleapis.com/v1/userinfo
 
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
-GITHUB_AUTH_SERVICE=
-GITHUB_TOKEN_SERVICE=
-GITHUB_API=`
+GITHUB_AUTH_SERVICE=https://github.com/login/oauth/authorize
+GITHUB_TOKEN_SERVICE=https://github.com/login/oauth/access_token
+GITHUB_API=https://api.github.com/user
 
 #### Running the app
 * `npm start`
@@ -42,6 +38,25 @@ GITHUB_API=`
 npm test
 * What assertions were made?
 * What assertions need to be / should be made?
+
+#### Questions from lab
+
+##### TODO: README Question:
+  * Now that we have some data about the user, how would we go about adding this user to our database?
+  we would want to post the data that we receive to mongo
+
+  * What data should we save?
+  For google we would save the name and email
+  For github the name and github username
+
+  * What data is missing?
+  Missing from both:
+    role:
+    password:
+    Missing from Github
+    email:
+  * What considerations about storing this data do we need to take?
+  We would need to account for people using a different email or username for github vs google. Also would need to check if the user already exists. 
 
 #### UML
 ![UML](./assets/UML.jpg)

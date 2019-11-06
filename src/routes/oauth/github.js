@@ -16,16 +16,18 @@ router.get('/github', (req, res, next) => {
     };
   
     // TODO: Comment
-    // adds a query to the URL
+    // adds a query to the githubOAuthURL
     githubOAuthURL += '?';
   
     // TODO: Comment
+    // adds our keys to the githubOAuthURL
     Object.keys(options).forEach((key, indx) => {
       githubOAuthURL += key + '=' + encodeURIComponent(options[key]);
       githubOAuthURL += '&';
     });
   
     // TODO: Comment
+    // This response isthe updated githubOAuthURL
     res.status(200).json({ url: githubOAuthURL });
 
 });
@@ -35,6 +37,7 @@ router.get('/github-oauth', async (req, res, next) => {
     console.log('data', data);
 
     // TODO: Comment
+    // response sends json data of the name & github login name of the user 
     res.status(200).json({ name: data.name, login: data.login });
 });
 

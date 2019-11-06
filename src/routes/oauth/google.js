@@ -30,20 +30,34 @@ router.get('/google', (req, res, next) => {
   googleOAuthURL += '?';
 
   // TODO: Comment
+  // adds our keys to the googleOAuthURL
+
   Object.keys(options).forEach((key, indx) => {
     googleOAuthURL += key + '=' + encodeURIComponent(options[key]);
     googleOAuthURL += '&';
   });
 
   // TODO: Comment
+  // This response isthe updated googleOAuthURL
   res.status(200).json({ url: googleOAuthURL });
 });
 
 // TODO: Swagger Comment
+/**
+ * @route GET /google-oauth
+ * This route is the return from google's authentication service and keys our middleware to grab the user data and display it as json data 
+ * @param {object}   req   The request object. 
+ * @param {object}   res   The response object.
+ * @param {Function} next  
+ * @security oauth
+ * @returns {object} 200 - json object {name: data.name, email: data.email}
+ */
 router.get('/google-oauth', async (req, res, next) => {
   let data = await googleMW(req);
 
   // TODO: Comment
+  // response sends json data of the name & email of the user 
+
   res.status(200).json({ name: data.name, email: data.email });
 
   // TODO: README Question:
